@@ -2,23 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>验证构建</title>
     <script src="../dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">{{gsd2}}</div>
-    <script>
-        new Vue({
-            el:"#app",
-            render(h){
-                return h('div',this.gsd2)
-            },
-            data:{
-                gsd2:'gggssss'
+<div class="container" id="app">
+    <input @input="gsdInput"/>
+</div>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        components: {
+            'aaa': {
+                template: '<div>abc</div>'
             }
-        })
-    </script>
+        },
+        template:{
+            'h':'<div>abc</div>'
+        },
+        methods: {
+            gsdInput() {
+                console.log('gsdinput')
+            }
+        },
+        data: {
+            'gsd': '666'
+        }
+    })
+</script>
 </body>
 </html>
